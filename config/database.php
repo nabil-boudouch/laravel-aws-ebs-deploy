@@ -1,9 +1,11 @@
 <?php
 
-//define('RDS_HOSTNAME', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_HOSTNAME'] : null);
-//define('RDS_USERNAME',  (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_USERNAME'] : null);
-//define('RDS_PASSWORD', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_PASSWORD'] :null);
-//define('RDS_DB_NAME', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_DB_NAME'] :null);
+define('RDS_HOSTNAME', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_HOSTNAME'] : null);
+define('RDS_USERNAME',  (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_USERNAME'] : null);
+define('RDS_PASSWORD', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_PASSWORD'] :null);
+define('RDS_DB_NAME', (array_key_exists('RDS_HOSTNAME', $_SERVER)) ? $_SERVER['RDS_DB_NAME'] :null);
+
+dd('my data', RDS_DB_NAME, RDS_USERNAME, RDS_HOSTNAME, RDS_PASSWORD);
 
 return [
 
