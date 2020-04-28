@@ -1,0 +1,55 @@
+version: '3'
+services:
+
+#  #PHP Service
+#  app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    image: digitalocean.com/php
+#    container_name: app
+#    restart: unless-stopped
+#    tty: true
+#    environment:
+#      SERVICE_NAME: app
+#      SERVICE_TAGS: dev
+#    working_dir: /var/www
+#    networks:
+#      - app-network
+#
+#  #Nginx Service
+#  webserver:
+#    image: nginx:alpine
+#    container_name: webserver
+#    restart: unless-stopped
+#    tty: true
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    networks:
+#      - app-network
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: aws_deploy_test_mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3303:3303"
+    environment:
+      MYSQL_DATABASE: laravel_ebs_deploy
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    expose:
+      - '3303'
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
